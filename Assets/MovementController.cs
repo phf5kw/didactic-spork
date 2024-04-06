@@ -1,6 +1,7 @@
 using UnityEngine;
 public class Movementcontroller : MonoBehaviour
 {
+    public bool direction_right = true;
     void Update()
     {
         if(direction_right){

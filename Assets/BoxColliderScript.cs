@@ -5,8 +5,12 @@ using UnityEngine.InputSystem;
 
 public class BoxColliderScript : MonoBehaviour
 {
+    public Movementcontroller movementController;
     private void OnTriggerEnter(Collider other)
     {
-        direction_right = !direction_right; //changes player direction
+        if (other.CompareTag("Wall"))
+        {
+            movementController.direction_right = !direction_right; //changes player direction
+        }
     }
 }
