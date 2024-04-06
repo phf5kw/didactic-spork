@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float jumpForce = 400f;
-    public float slipForce = 100f
     Rigidbody2D rb;
 
     // Start called on start
@@ -27,6 +26,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.AddForce(Vector3.down * rb.mass * slipForce);
+        if(direction_right){
+            //go right
+            transform.Translate(5f * Time.deltaTime, 0f, 0f);
+        }
+        else{
+            //go left
+            transform.Translate(-5f * Time.deltaTime, 0f, 0f);
+        }
     }
 }

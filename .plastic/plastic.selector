@@ -1,0 +1,4 @@
+repository "didactic-spork@narcatz@cloud"
+  path "/"
+    br "/main"
+    co "/main"
