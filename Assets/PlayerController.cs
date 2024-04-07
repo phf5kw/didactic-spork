@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = this.GetComponent<Rigidbody2D>();
         bc = this.GetComponent<BoxCollider2D>();
+        //transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
     }
 
     // your Jump code here
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
             gravityScale = wallGrav;
             Debug.Log("Hit right wall");
             dir_right = false; //changes player direction
+            //transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
         }
         else if (col.gameObject.tag == "Left Wall")
         {
@@ -57,6 +59,29 @@ public class PlayerController : MonoBehaviour
             gravityScale = wallGrav;
             Debug.Log("Hit left wall");
             dir_right = true; //changes player direction
+            //GetComponent<SpriteRenderer>().flipX = true;
+            //transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D col)
+    {
+        Debug.Log("Collide");
+        if (col.gameObject.tag == "Right Wall")
+        {
+            // rb.velocity = new Vector2(0, 0);
+            // gravityScale = wallGrav;
+            // Debug.Log("Hit right wall");
+            dir_right = false; //changes player direction
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+        }
+        else if (col.gameObject.tag == "Left Wall")
+        {
+            // rb.velocity = new Vector2(0, 0);
+            // gravityScale = wallGrav;
+            // Debug.Log("Hit left wall");
+            dir_right = true; //changes player direction
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
         }
 
         if (col.gameObject.transform.parent != null)
