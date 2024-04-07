@@ -281,6 +281,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &113894799 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3679467667092911124, guid: 77b988a5cf0ed804d9acbf7b9f3527e3, type: 3}
+  m_PrefabInstance: {fileID: 6644912968328824494}
+  m_PrefabAsset: {fileID: 0}
+--- !u!251 &113894805
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113894799}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &230014869
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +460,7 @@ Transform:
   m_GameObject: {fileID: 230014869}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.043, y: -0.336, z: 0}
+  m_LocalPosition: {x: -1.043, y: -2.66, z: 0}
   m_LocalScale: {x: 0.8085, y: 0.8085, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -484,7 +508,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0392b0e2e220cfd4f94ff3e80e77dadc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 400
+  jumpForce: 7
+  leapSpeed: 3
+  dir_right: 1
+  wallGrav: 0.05
+  gravityScale: 1
+  bounceForce: 12
 --- !u!114 &230014876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,6 +551,7 @@ GameObject:
   - component: {fileID: 495492393}
   - component: {fileID: 495492391}
   - component: {fileID: 495492392}
+  - component: {fileID: 495492396}
   m_Layer: 0
   m_Name: PixelPlank (3)
   m_TagString: Untagged
@@ -611,7 +641,7 @@ CapsuleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.0000076293945, y: 0}
   m_Size: {x: 1.0000001, y: 1.0000001}
@@ -683,6 +713,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1630766216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &495492396
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495492390}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,6 +743,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -775,6 +825,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cf01437d671eba498b93ff41774c135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &629822468
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,6 +850,7 @@ GameObject:
   - component: {fileID: 629822471}
   - component: {fileID: 629822469}
   - component: {fileID: 629822470}
+  - component: {fileID: 629822474}
   m_Layer: 0
   m_Name: PixelPlank (6)
   m_TagString: Untagged
@@ -877,7 +940,7 @@ CapsuleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.0000076293945, y: 0}
   m_Size: {x: 1.0000001, y: 1.0000001}
@@ -949,6 +1012,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1630766216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &629822474
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629822468}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &699126090
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,6 +1044,7 @@ GameObject:
   - component: {fileID: 699126093}
   - component: {fileID: 699126091}
   - component: {fileID: 699126092}
+  - component: {fileID: 699126096}
   m_Layer: 0
   m_Name: PixelPlank (1)
   m_TagString: Untagged
@@ -1051,7 +1134,7 @@ CapsuleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.0000076293945, y: 0}
   m_Size: {x: 1.0000001, y: 1.0000001}
@@ -1123,6 +1206,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1630766216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &699126096
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699126090}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!50 &999814180 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 3371666126492375536, guid: 77b988a5cf0ed804d9acbf7b9f3527e3, type: 3}
@@ -1141,6 +1243,7 @@ GameObject:
   - component: {fileID: 1096775403}
   - component: {fileID: 1096775401}
   - component: {fileID: 1096775402}
+  - component: {fileID: 1096775406}
   m_Layer: 0
   m_Name: PixelPlank (8)
   m_TagString: Untagged
@@ -1230,7 +1333,7 @@ CapsuleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.0000076293945, y: 0}
   m_Size: {x: 1.0000001, y: 1.0000001}
@@ -1302,6 +1405,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1630766216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &1096775406
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096775400}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1105576190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,6 +1437,7 @@ GameObject:
   - component: {fileID: 1105576193}
   - component: {fileID: 1105576191}
   - component: {fileID: 1105576192}
+  - component: {fileID: 1105576196}
   m_Layer: 0
   m_Name: PixelPlank (4)
   m_TagString: Untagged
@@ -1404,7 +1527,7 @@ CapsuleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.0000076293945, y: 0}
   m_Size: {x: 1.0000001, y: 1.0000001}
@@ -1476,6 +1599,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1630766216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &1105576196
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105576190}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1181619793
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,6 +1631,7 @@ GameObject:
   - component: {fileID: 1181619796}
   - component: {fileID: 1181619794}
   - component: {fileID: 1181619795}
+  - component: {fileID: 1181619799}
   m_Layer: 0
   m_Name: PixelPlank (12)
   m_TagString: Untagged
@@ -1578,7 +1721,7 @@ CapsuleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.0000076293945, y: 0}
   m_Size: {x: 1.0000001, y: 1.0000001}
@@ -1650,6 +1793,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1630766216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &1181619799
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181619793}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1298733587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,6 +1825,7 @@ GameObject:
   - component: {fileID: 1298733590}
   - component: {fileID: 1298733588}
   - component: {fileID: 1298733589}
+  - component: {fileID: 1298733593}
   m_Layer: 0
   m_Name: PixelPlank (14)
   m_TagString: Untagged
@@ -1752,7 +1915,7 @@ CapsuleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.0000076293945, y: 0}
   m_Size: {x: 1.0000001, y: 1.0000001}
@@ -1824,6 +1987,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1630766216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &1298733593
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298733587}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1327315539
 GameObject:
   m_ObjectHideFlags: 0
@@ -1837,8 +2019,8 @@ GameObject:
   - component: {fileID: 1327315541}
   - component: {fileID: 1327315540}
   m_Layer: 0
-  m_Name: Wall
-  m_TagString: Untagged
+  m_Name: left wall
+  m_TagString: Left Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1872,7 +2054,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1995,6 +2177,7 @@ GameObject:
   - component: {fileID: 1369992840}
   - component: {fileID: 1369992838}
   - component: {fileID: 1369992839}
+  - component: {fileID: 1369992843}
   m_Layer: 0
   m_Name: PixelPlank (11)
   m_TagString: Untagged
@@ -2084,7 +2267,7 @@ CapsuleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.0000076293945, y: 0}
   m_Size: {x: 1.0000001, y: 1.0000001}
@@ -2156,6 +2339,49 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1630766216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &1369992843
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369992837}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
+--- !u!1 &1398654179 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7710630759502482775, guid: 77b988a5cf0ed804d9acbf7b9f3527e3, type: 3}
+  m_PrefabInstance: {fileID: 6644912968328824494}
+  m_PrefabAsset: {fileID: 0}
+--- !u!251 &1398654180
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398654179}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1402070016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2169,6 +2395,7 @@ GameObject:
   - component: {fileID: 1402070019}
   - component: {fileID: 1402070017}
   - component: {fileID: 1402070018}
+  - component: {fileID: 1402070022}
   m_Layer: 0
   m_Name: PixelPlank (7)
   m_TagString: Untagged
@@ -2258,7 +2485,7 @@ CapsuleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.0000076293945, y: 0}
   m_Size: {x: 1.0000001, y: 1.0000001}
@@ -2330,6 +2557,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1630766216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &1402070022
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402070016}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1403913631
 GameObject:
   m_ObjectHideFlags: 0
@@ -2343,6 +2589,7 @@ GameObject:
   - component: {fileID: 1403913634}
   - component: {fileID: 1403913632}
   - component: {fileID: 1403913633}
+  - component: {fileID: 1403913637}
   m_Layer: 0
   m_Name: PixelPlank (13)
   m_TagString: Untagged
@@ -2432,7 +2679,7 @@ CapsuleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.0000076293945, y: 0}
   m_Size: {x: 1.0000001, y: 1.0000001}
@@ -2504,6 +2751,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1630766216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &1403913637
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403913631}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1410621217
 GameObject:
   m_ObjectHideFlags: 0
@@ -2517,6 +2783,7 @@ GameObject:
   - component: {fileID: 1410621220}
   - component: {fileID: 1410621218}
   - component: {fileID: 1410621219}
+  - component: {fileID: 1410621223}
   m_Layer: 0
   m_Name: PixelPlank (10)
   m_TagString: Untagged
@@ -2606,7 +2873,7 @@ CapsuleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.0000076293945, y: 0}
   m_Size: {x: 1.0000001, y: 1.0000001}
@@ -2678,6 +2945,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1630766216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &1410621223
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410621217}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1423470888
 GameObject:
   m_ObjectHideFlags: 0
@@ -2691,6 +2977,7 @@ GameObject:
   - component: {fileID: 1423470891}
   - component: {fileID: 1423470889}
   - component: {fileID: 1423470890}
+  - component: {fileID: 1423470894}
   m_Layer: 0
   m_Name: PixelPlank (15)
   m_TagString: Untagged
@@ -2780,7 +3067,7 @@ CapsuleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.0000076293945, y: 0}
   m_Size: {x: 1.0000001, y: 1.0000001}
@@ -2852,6 +3139,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1630766216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &1423470894
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423470888}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!4 &1630766216 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5651037874947833684, guid: 77b988a5cf0ed804d9acbf7b9f3527e3, type: 3}
@@ -2870,6 +3176,7 @@ GameObject:
   - component: {fileID: 1784008938}
   - component: {fileID: 1784008936}
   - component: {fileID: 1784008937}
+  - component: {fileID: 1784008941}
   m_Layer: 0
   m_Name: PixelPlank (2)
   m_TagString: Untagged
@@ -2959,7 +3266,7 @@ CapsuleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.0000076293945, y: 0}
   m_Size: {x: 1.0000001, y: 1.0000001}
@@ -3031,6 +3338,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1630766216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &1784008941
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784008935}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1999973057
 GameObject:
   m_ObjectHideFlags: 0
@@ -3044,6 +3370,7 @@ GameObject:
   - component: {fileID: 1999973060}
   - component: {fileID: 1999973058}
   - component: {fileID: 1999973059}
+  - component: {fileID: 1999973063}
   m_Layer: 0
   m_Name: PixelPlank (9)
   m_TagString: Untagged
@@ -3133,7 +3460,7 @@ CapsuleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.0000076293945, y: 0}
   m_Size: {x: 1.0000001, y: 1.0000001}
@@ -3205,6 +3532,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1630766216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &1999973063
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999973057}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &2074315364
 GameObject:
   m_ObjectHideFlags: 0
@@ -3218,8 +3564,8 @@ GameObject:
   - component: {fileID: 2074315366}
   - component: {fileID: 2074315365}
   m_Layer: 0
-  m_Name: Wall (2)
-  m_TagString: Untagged
+  m_Name: right wall
+  m_TagString: Right Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3253,7 +3599,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3376,6 +3722,7 @@ GameObject:
   - component: {fileID: 2075591001}
   - component: {fileID: 2075590999}
   - component: {fileID: 2075591000}
+  - component: {fileID: 2075591004}
   m_Layer: 0
   m_Name: PixelPlank (5)
   m_TagString: Untagged
@@ -3465,7 +3812,7 @@ CapsuleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.0000076293945, y: 0}
   m_Size: {x: 1.0000001, y: 1.0000001}
@@ -3537,6 +3884,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1630766216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!251 &2075591004
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075590998}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1001 &6644912968328824494
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3548,6 +3914,10 @@ PrefabInstance:
     - target: {fileID: 165086076381336452, guid: 77b988a5cf0ed804d9acbf7b9f3527e3, type: 3}
       propertyPath: m_ConnectedRigidBody
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 244843901129117397, guid: 77b988a5cf0ed804d9acbf7b9f3527e3, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 337988742226594190, guid: 77b988a5cf0ed804d9acbf7b9f3527e3, type: 3}
       propertyPath: m_ConnectedRigidBody
@@ -3605,9 +3975,17 @@ PrefabInstance:
       propertyPath: m_ConnectedRigidBody
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4810976621413687606, guid: 77b988a5cf0ed804d9acbf7b9f3527e3, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5143696361470964937, guid: 77b988a5cf0ed804d9acbf7b9f3527e3, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0.008066177
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143696361470964937, guid: 77b988a5cf0ed804d9acbf7b9f3527e3, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.0019999743
       objectReference: {fileID: 0}
     - target: {fileID: 5651037874947833684, guid: 77b988a5cf0ed804d9acbf7b9f3527e3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3615,7 +3993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5651037874947833684, guid: 77b988a5cf0ed804d9acbf7b9f3527e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.01
+      value: -1.47
       objectReference: {fileID: 0}
     - target: {fileID: 5651037874947833684, guid: 77b988a5cf0ed804d9acbf7b9f3527e3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3756,7 +4134,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5651037874947833684, guid: 77b988a5cf0ed804d9acbf7b9f3527e3, type: 3}
       insertIndex: 16
       addedObject: {fileID: 1423470893}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7710630759502482775, guid: 77b988a5cf0ed804d9acbf7b9f3527e3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1398654180}
+    - targetCorrespondingSourceObject: {fileID: 3679467667092911124, guid: 77b988a5cf0ed804d9acbf7b9f3527e3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 113894805}
   m_SourcePrefab: {fileID: 100100000, guid: 77b988a5cf0ed804d9acbf7b9f3527e3, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
