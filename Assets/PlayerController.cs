@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+
     public float jumpForce = 3.0f;
     public float leapSpeed = 2.0f;
     public bool dir_right = true;
