@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Clothesline
+  - Wall
+  - Right Wall
+  - Left Wall
   layers:
   - Default
   - TransparentFX
