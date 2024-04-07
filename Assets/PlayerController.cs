@@ -27,7 +27,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.Translate(6f * Time.deltaTime, 0f, 0f);
+        movementController.Update();
+    }
+}
 
+public class Wall : MonoBehavior
+{
+     Rigidbody2D rb;
+    void Start()
+    {
+        rb = this.GetComponent<Rigidbody2D>();
     }
 }
 
@@ -49,7 +59,6 @@ public class Movementcontroller : MonoBehaviour
 public class BoxColliderScript : MonoBehaviour
 {
     public Movementcontroller movementController;
-    Rigidbody2D wall = this.GetComponent<Rigidbody2D>();
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Wall"))
