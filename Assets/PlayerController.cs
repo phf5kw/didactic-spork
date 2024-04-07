@@ -48,7 +48,6 @@ public class PlayerController : MonoBehaviour
             gravityScale = wallGrav;
             Debug.Log("Hit right wall");
             dir_right = false; //changes player direction
-            transform.Rotate(new Vector3(0,180,0));
         }
         else if (col.gameObject.tag == "Left Wall")
         {
@@ -56,7 +55,7 @@ public class PlayerController : MonoBehaviour
             gravityScale = wallGrav;
             Debug.Log("Hit left wall");
             dir_right = true; //changes player direction
-            transform.Rotate(new Vector3(0,180,0));
+            GetComponent<SpriteRenderer>().flipX = true;
         }
     }
 
