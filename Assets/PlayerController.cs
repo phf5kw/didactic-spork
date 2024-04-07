@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public bool dir_right = true;
     public float wallGrav = 0.05f;
     public float gravityScale = 1f;
+    public float bounceForce = 5.0f;
     Rigidbody2D rb;
     BoxCollider2D bc;
 
@@ -57,6 +58,15 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Hit left wall");
             dir_right = true; //changes player direction
         }
+
+        if (col.gameObject.transform.parent != null)
+        {
+            if (col.gameObject.transform.parent.gameObject.tag == "Clothesline")
+            {
+                Debug.Log("Clothesline hit");
+                rb.velocity = new Vector2(rb.velocity.x, bounceForce);
+            }
+        }
     }
 
     void OnCollisionStay2D(Collision2D col)
@@ -67,6 +77,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("On left wall");
         }
+
     }
 
     // Update is called once per frame
